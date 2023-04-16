@@ -1,9 +1,14 @@
+import 'package:demo_project/controllers/notes-controller.dart';
 import 'package:demo_project/screens/home-screen.dart';
 import 'package:demo_project/screens/note-screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (BuildContext context) {
+    return NotesController();
+  },
+  child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

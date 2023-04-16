@@ -11,9 +11,18 @@ class NotesListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: DesignSystem.SCREEN_HORIZONTAL_PADDING),
-    child: Center(child: Column(
-      children: noteModels.map((nm) => NoteRowWidget(note: nm)).toList(), //map - funktsioon, mis käib iga kirje kohta, nm - notemodel lühendiks
-    )));
+        padding: const EdgeInsets.symmetric(
+            horizontal: DesignSystem.SCREEN_HORIZONTAL_PADDING),
+        child: Center(
+            child: Column(
+          children: noteModels
+              .asMap()
+              .entries
+              .map<NoteRowWidget>((nm) => NoteRowWidget(
+                    note: nm.value,
+                    position: nm.key,
+                  ))
+              .toList(),
+        )));
   }
 }

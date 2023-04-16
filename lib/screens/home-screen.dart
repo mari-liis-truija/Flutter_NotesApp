@@ -7,15 +7,20 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) { //BuildContext - koht selles puu struktuuris (tund 4)
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Märkmik'),),
+      appBar: AppBar(
+        title: const Text('Märkmik'),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () => Navigator.of(context).pushNamed('/note-screen'),
       ),
-      body: NotesListWidget(noteModels: Provider.of<NotesController>(context, listen: true).allNotes,),
+      body: SingleChildScrollView( // add scroll functionality with widget
+          child: NotesListWidget(
+        noteModels:
+            Provider.of<NotesController>(context, listen: true).allNotes,
+      )),
     );
   }
-
 }

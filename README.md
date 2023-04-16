@@ -1,6 +1,6 @@
-# demo_project
+# Notes_App
 
-A new Flutter project.
+A new Flutter project for school's course: Programming of mobile applications.
 
 ## Getting Started
 

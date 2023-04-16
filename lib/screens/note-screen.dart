@@ -1,4 +1,5 @@
 import 'package:demo_project/controllers/notes-controller.dart';
+import 'package:demo_project/controllers/weather-controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,8 @@ class _NoteScreenState extends State<NoteScreen> {
   TextEditingController titleController = TextEditingController();
   TextEditingController messageController = TextEditingController();
 
-  initNote(BuildContext context) { //abistav funktsioon
+  initNote(BuildContext context) {
+    WeatherController().fetchWeather();
     position = ModalRoute.of(context)?.settings.arguments as int?;
     if (position == null) {
       note.message = "This is a test message ";
@@ -80,6 +82,22 @@ class _NoteScreenState extends State<NoteScreen> {
                         hintText: "Tell me your thoughts",
                       )),
                 ),
+
+                // kui note.weather != ei ole null, ? sellisel juhul text, : vastasel juhul FutureBuilder
+                note.weather != null ? Text(note.weather!) : FutureBuilder( //FutureBuilder = widget, mis saab tagastada erinevaid widgeteid
+                    future: WeatherController().fetchWeather(),
+                    builder: (BuildContext context, AsyncSnapshot snapshot) { // sisseehitatud objekt FutureBuilderisse, mis kuulab kas sünkoonne käsk on jooksmas või tagastatud
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: Text("Loading..."),);
+                      }
+                      else if (snapshot.connectionState == ConnectionState.done && snapshot.hasData){ // kui ühendus loodud
+                        note.weather = snapshot.data!;
+                        return Text(note.weather!);
+                      }
+                      else return Text("errorrrr"); // kui ühendust pole
+                    }
+                ),
+
               ],
             ),
           ),

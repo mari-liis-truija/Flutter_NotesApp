@@ -3,6 +3,7 @@ class NoteModel {
   late String message;
   late DateTime date;
   late String emoji;
+  String? weather;
 }
 
   List<NoteModel> getTestNotes(){

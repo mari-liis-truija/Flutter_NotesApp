@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>677163099192-8otl0i2d7m2jpk65pmevsk9k57hk4qc2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.677163099192-8otl0i2d7m2jpk65pmevsk9k57hk4qc2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDhrQUCNrVwfGiSveRei5-vES4EgaLjNfI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>677163099192</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.demoProject</string>
+	<key>PROJECT_ID</key>
+	<string>mainor2023notes-b1c9a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mainor2023notes-b1c9a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:677163099192:ios:9cb07d158b2b71d86bf2cd</string>
+	<key>DATABASE_URL</key>
+	<string>https://mainor2023notes-b1c9a-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>

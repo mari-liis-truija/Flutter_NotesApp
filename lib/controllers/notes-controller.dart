@@ -1,29 +1,23 @@
+import 'package:demo_project/controllers/persistence/persistence.dart';
+import 'package:demo_project/controllers/persistence/sql-persistence.dart';
 import 'package:flutter/material.dart';
-
 import '../models/note-model.dart';
 
 class NotesController extends ChangeNotifier{ // ChangeNotifier - iga kord kui kutsutakse funktsioon add välja, annab kõigile widgetitele teada, et nad peaksid uuendama enanst
-  List<NoteModel> notes = [];
+  //List<NoteModel> notes = [];
 
-  List<NoteModel> getAllNotes() {
-    return notes;
+  Persistence persistence = SqlPersistence(); // saame kasutada ainult persistence.dart meetodeid
+
+  Future<List<NoteModel>> get allNotes {
+    return persistence.getAllNotes();
   }
 
-  List<NoteModel> get allNotes {
-    return notes;
-  }
-
-  void addNote(NoteModel note) {
-    notes.add(note);
+  Future<void> saveNote(int? id, NoteModel note) async {
+    await persistence.saveNote(note);
     notifyListeners();
   }
 
-  void editNote(int position, NoteModel note) {
-    notes[position] = note;
-    notifyListeners();
-  }
-
-  NoteModel getNote(int position) {
-    return notes[position]; //position - List<NoteModel> getAllNotes() küsib jada positsiooni, kui tahab mingit kindlat note-i kätte saada
+  Future<NoteModel> getNote(int position) async {
+    return persistence.getNote(position);
   }
 }

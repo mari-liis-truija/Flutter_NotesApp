@@ -20,7 +20,7 @@ class NotesListWidget extends StatelessWidget {
               .entries
               .map<NoteRowWidget>((nm) => NoteRowWidget(
                     note: nm.value,
-                    position: nm.key,
+                    id: nm.value.id,
                   ))
               .toList(),
         )));

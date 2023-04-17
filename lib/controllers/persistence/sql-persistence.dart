@@ -69,7 +69,7 @@ class SqlPersistence extends Persistence { // hakkab kasutama SQLflite andmebaas
   }
 
   @override
-  Future<NoteModel> getNote(num id) async {
+  Future<NoteModel> getNote(String id) async {
     var dbClient = await db;
     List<Map<String, dynamic>> result = await dbClient.rawQuery('SELECT * FROM Notes WHERE id=$id');
     NoteModel note = NoteModel();

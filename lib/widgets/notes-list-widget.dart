@@ -1,4 +1,4 @@
-import 'package:demo_project/widgets/note-widget.dart';
+import 'package:demo_project/widgets/note-row-widget.dart';
 import 'package:flutter/material.dart';
 
 import '../design/design-system.dart';

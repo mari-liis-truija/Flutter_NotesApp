@@ -1,5 +1,5 @@
 class NoteModel {
-  int? id; // addNote ja editNote läheb id alla selliselt, et edit toimib ainult id järgi ja kirjutab üle eelneva
+  String? id; // addNote ja editNote läheb id alla selliselt, et edit toimib ainult id järgi ja kirjutab üle eelneva
   late String title;
   late String message;
   late DateTime date;
